@@ -62,7 +62,7 @@ def read_and_save_to_csv():
     result_df.to_csv(os.path.join(dataset_path, output_text_filename),
                      index=None, encoding='utf-8')
 
-
+# 计算时间较长 稍后
 def run_main():
     """
         主函数

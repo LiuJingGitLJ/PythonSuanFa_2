@@ -27,7 +27,7 @@ class Cluster(object):
 
         # 该聚类中样本点的维度
         self.n_dim = samples[0].n_dim
-
+#
         # 判断该聚类中所有样本点的维度是否相同
         for sample in samples:
             if sample.n_dim != self.n_dim:

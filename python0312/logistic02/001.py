@@ -53,8 +53,8 @@ def stocGraAscent(dataMatrix,matLabel):
     matMatrix=mat(dataMatrix)
 
     w=ones((n,1))
-    alpha=0.001
-    num=20  #这里的这个迭代次数对于分类效果影响很大，很小时分类效果很差
+    alpha = 0.001
+    num = 20  #这里的这个迭代次数对于分类效果影响很大，很小时分类效果很差
     for i in range(num):
         for j in range(m):
             error=sigmoid(matMatrix[j]*w)-matLabel[j]
@@ -70,7 +70,7 @@ def stocGraAscent1(dataMatrix,matLabel):
     matMatrix=mat(dataMatrix)
 
     w=ones((n,1))
-    num=200  #这里的这个迭代次数对于分类效果影响很大，很小时分类效果很差
+    num=2020  #这里的这个迭代次数对于分类效果影响很大，很小时分类效果很差
     setIndex=set([])
     for i in range(num):
         for j in range(m):
@@ -120,12 +120,14 @@ def draw(weight):
 if __name__ == '__main__':
 
     dataMatrix,matLabel=loadDataSet()
-
     print(dataMatrix)
     print('--------------')
     print(matLabel)
-
-    #weight=graAscent(dataMatrix,matLabel)
-    weight=stocGraAscent1(dataMatrix,matLabel)
-    print(weight)
-    draw(weight)
+    weight1=stocGraAscent(dataMatrix,matLabel)
+    weight2=stocGraAscent1(dataMatrix,matLabel)
+    print(weight1)
+    print('------11111-----')
+    print(weight2)
+    print('------22222-----')
+    draw(weight1)
+    #draw(weight2)

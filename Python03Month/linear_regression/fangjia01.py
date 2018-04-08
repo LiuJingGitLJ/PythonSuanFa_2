@@ -49,7 +49,7 @@ def show_linear_line(X_parameter,Y_parameter):
     plt.scatter(X_parameter,Y_parameter,color = 'blue')
 
     # 3. 绘出预测直线
-    plt.plot(X_parameter,regr.predict(X_parameter),color = 'red',linewidth = 4)
+    plt.plot(X_parameter,regr.predict(X_parameter),color = 'cyan',linewidth = 4)
 
     plt.title('Predict the house price')
     plt.xlabel('square feet')
@@ -61,7 +61,7 @@ def main():
     X,Y = get_data('./price_info.csv')
 
     # 2. 获取预测值，在这里我们预测700平方英尺大小的房子的房价
-    predict_square_feet = 700
+    predict_square_feet = 900
     result = linear_model_main(X,Y,predict_square_feet)
     for key,value in result.items():
         print ('{0}:{1}'.format(key,value))

@@ -17,6 +17,7 @@ def jacobian(x):
 def hessian(x):
     return np.array([[-400*(x[1]-3*x[0]**2)+2,-400*x[0]],[-400*x[0],200]])
 
+
 X1=np.arange(-1.5,1.5+0.05,0.05)
 X2=np.arange(-3.5,2+0.05,0.05)
 [x1,x2]=np.meshgrid(X1,X2)
@@ -25,7 +26,6 @@ plt.contour(x1,x2,f,20) # 画出函数的20条轮廓线
 
 
 def newton(x0):
-
     print('初始点为:')
     print(x0,'\n')
     W=np.zeros((2,10**3))
@@ -35,7 +35,6 @@ def newton(x0):
     x = x0
     delta = 1
     alpha = 1
-
     while i<imax and delta>10**(-5):
         p = -np.dot(np.linalg.inv(hessian(x)),jacobian(x))
         x0 = x
@@ -52,4 +51,31 @@ x0 = np.array([-1.2,1])
 W=newton(x0)
 
 plt.plot(W[0,:],W[1,:],'g*',W[0,:],W[1,:]) # 画出迭代点收敛的轨迹
+plt.show()
+
+def newton2(x0):
+    print('初始点')
+    print(x0, '\n')
+    W = np.zeros((2,10**3))
+    i = 1
+    imax = 1000
+    W[:,0] = x0
+    x = x0
+    delta = 1
+    alpha = 1
+    while i<imax and delta>10**(-5):
+        p = -np.dot(np.linalg.inv(hessian(x)),jacobian())
+        x0 = x
+        x = x + alpha*p
+        W[:,i] = x
+        delta = sum((x-x0)**2)
+        print('第',i,'次迭代结果')
+        print(x, '\n')
+        i = i+1
+    W = W[:, 0:i]
+    return W
+
+x0 = np.array([-1.2, 1])
+W = newton(x0)
+plt.plot(W[0,:],W[1,:],'g*',W[0,:],W[1:]) #画出迭代点收敛的轨迹
 plt.show()

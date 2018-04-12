@@ -42,7 +42,7 @@ def newton(x0):
     W=W[:,0:i]#记录迭代点
     return W
 
-x0 = np.array([-1.2,1])
+x0 = np.array([0,0])
 W=newton(x0)
 
 plt.plot(W[0,:],W[1,:],'g*',W[0,:],W[1,:])

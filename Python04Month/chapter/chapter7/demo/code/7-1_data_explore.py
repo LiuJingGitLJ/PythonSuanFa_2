@@ -5,7 +5,11 @@
 import pandas as pd
 
 datafile= '../data/air_data.csv' #航空原始数据,第一行为属性标签
+<<<<<<< HEAD
 resultfile = '../tmp/explore.xls' #数据探索结果表
+=======
+resultfile = '../tmp/explore1.xls' #数据探索结果表
+>>>>>>> 9e3625d79b9f64576d417be14b9b3f60797aacdd
 
 data = pd.read_csv(datafile, encoding = 'utf-8') #读取原始数据，指定UTF-8编码（需要用文本编辑器将数据装换为UTF-8编码）
 

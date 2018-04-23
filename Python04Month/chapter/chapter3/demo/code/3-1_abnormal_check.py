@@ -3,7 +3,7 @@ import pandas as pd
 
 catering_sale = '../data/catering_sale.xls' #餐饮数据
 data = pd.read_excel(catering_sale, index_col = u'日期') #读取数据，指定“日期”列为索引列
-
+print(data)
 import matplotlib.pyplot as plt #导入图像库
 plt.rcParams['font.sans-serif'] = ['SimHei'] #用来正常显示中文标签
 plt.rcParams['axes.unicode_minus'] = False #用来正常显示负号

@@ -4,7 +4,11 @@
 import pandas as pd
 
 datafile= '../data/air_data.csv' #航空原始数据,第一行为属性标签
+<<<<<<< HEAD
 cleanedfile = '../tmp/data_cleaned.xls' #数据清洗后保存的文件
+=======
+cleanedfile = '../tmp/data_cleaned.csv' #数据清洗后保存的文件
+>>>>>>> 9e3625d79b9f64576d417be14b9b3f60797aacdd
 
 data = pd.read_csv(datafile,encoding='utf-8') #读取原始数据，指定UTF-8编码（需要用文本编辑器将数据装换为UTF-8编码）
 
@@ -16,4 +20,8 @@ index2 = data['SUM_YR_2'] != 0
 index3 = (data['SEG_KM_SUM'] == 0) & (data['avg_discount'] == 0) #该规则是“与”
 data = data[index1 | index2 | index3] #该规则是“或”
 
+<<<<<<< HEAD
 data.to_excel(cleanedfile) #导出结果
+=======
+data.to_csv(cleanedfile) #导出结果
+>>>>>>> 9e3625d79b9f64576d417be14b9b3f60797aacdd

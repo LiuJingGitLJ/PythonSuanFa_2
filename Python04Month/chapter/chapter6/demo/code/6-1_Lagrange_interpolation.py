@@ -4,7 +4,7 @@ import pandas as pd #导入数据分析库Pandas
 from scipy.interpolate import lagrange #导入拉格朗日插值函数
 
 inputfile = '../data/missing_data.xls' #输入数据路径,需要使用Excel格式；
-outputfile = '../tmp/missing_data_processed.xls' #输出数据路径,需要使用Excel格式
+outputfile = '../tmp/missing_data_processed2.xls' #输出数据路径,需要使用Excel格式
 
 data = pd.read_excel(inputfile, header=None) #读入数据
 

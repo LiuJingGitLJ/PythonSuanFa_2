@@ -14,11 +14,7 @@ data = pd.read_excel(inputfile) #读取数据
 kmodel = KMeans(n_clusters = k, n_jobs = 4) #n_jobs是并行数，一般等于CPU数较好
 kmodel.fit(data) #训练模型
 
-<<<<<<< HEAD
-kmodel.cluster_centers_ #查看聚类中心
-kmodel.labels_ #查看各样本对应的类别
-=======
+
 print(kmodel.cluster_centers_) #查看聚类中心
 print('\n---')
 print(kmodel.labels_) #查看各样本对应的类别
->>>>>>> 9e3625d79b9f64576d417be14b9b3f60797aacdd

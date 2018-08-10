@@ -19,6 +19,18 @@ def get_data(file_name):
 
     return X_parameter,Y_parameter
 
+def get_data1(file_name1):
+
+    data = pd.read_csv(file_name1)
+
+    X_parameter = []
+    Y_parameter = []
+    for single_square_feet,single_price_value in zip(data['square_feet'],data['price']):
+        X_parameter.append([float(single_square_feet)])
+        Y_parameter.append(float(single_price_value))
+
+    return X_parameter,Y_parameter
+
 # 线性回归分析，其中predict_square_feet为要预测的平方英尺数，函数返回对应的房价
 def linear_model_main(X_parameter,Y_parameter,predict_square_feet):
     # 1. 构造回归对象

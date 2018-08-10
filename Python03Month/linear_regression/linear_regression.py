@@ -38,6 +38,17 @@ def standRegression(xArr,yArr):
         return
     sigma = xTx.I * (xMat.T * yMat.T)
     return sigma
+
+def standRegression1(xArr,yArr):
+    xMat = mat(xArr);
+    yMat = mat(yArr);
+    xTx = xMat.T * xMat
+    if linalg.det(xTx) == 0.0:
+        print('this')
+        return
+    sigma = xTx.I *(xMat.T * yMat.T)
+    return sigma
+
 '''
 下面我们来看拟合的结果，利用PlotLine()函数来画图。注意这个函数的传入参数xMay和yMat需要为矩阵形式
 '''
@@ -93,6 +104,20 @@ def lwlr(testPoint,xArr,yArr,k = 1.0):
     xTWx = xMat.T * (weights*xMat)
     if linalg.det(xTWx)==0.0:
         print('this matrix is singular,cannot do inverse\n')
+        return
+    sigma = xTWx.I * (xMat.T * (weights * yMat))
+    return testPoint * sigma
+
+def lwlr2(testPoint,xArr,yArr,k = 1.0):
+    xMat = mat(xArr);yMat = mat(yArr).T
+    m = shape(xMat)[0]
+    weights = mat(eye(m))
+    for i in range(m):
+        diffMat = testPoint - xMat[i,:]
+        weights[i,i] = exp(diffMat * diffMat.T/(-2.0*k**2))
+    xTWx = xMat.T * (weights*xMat)
+    if linalg.det(xTWx)==0.0:
+        print('')
         return
     sigma = xTWx.I * (xMat.T * (weights * yMat))
     return testPoint * sigma

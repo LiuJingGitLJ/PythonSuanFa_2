@@ -40,7 +40,7 @@ def run_main():
     dataset_filename = get_dataset_filename(zip_filepath)  # 数据集文件名（在zip中）
     dataset_filepath = os.path.join(dataset_path, dataset_filename)  # 数据集文件路径
 
-    print('解压zip...', end='')
+    # print('解压zip...', end='')
     unzip(zip_filepath, dataset_path)
     print('完成.')
 
